@@ -1,0 +1,51 @@
+---
+import type { Evidence } from "../../data/evidence";
+
+interface Props{
+
+evidence:Evidence;
+
+}
+
+const { evidence }=Astro.props;
+---
+
+<article class="card evidence-card">
+
+<img
+
+src={evidence.image}
+
+alt={evidence.title}
+
+/>
+
+<div class="content">
+
+<span>
+
+{evidence.year}
+
+</span>
+
+<h3>
+
+{evidence.title}
+
+</h3>
+
+<p>
+
+{evidence.description}
+
+</p>
+
+<a>
+
+Lihat Bukti →
+
+</a>
+
+</div>
+
+</article>

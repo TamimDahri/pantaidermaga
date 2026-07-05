@@ -1,0 +1,109 @@
+---
+const links = [
+  { name: "Utama", href: "#hero" },
+  { name: "Sejarah", href: "#timeline" },
+  { name: "Raja Bot", href: "#raja-bot" },
+  { name: "Bukti", href: "#evidence" },
+  { name: "Petisyen", href: "#petition" }
+];
+---
+
+<header id="navbar">
+
+<div class="container nav">
+
+<a href="/" class="logo">
+
+<div class="logo-mark">
+PD
+</div>
+
+<div class="logo-text">
+<span>Pantai Dermaga</span>
+<small>Historical Archive</small>
+</div>
+
+</a>
+
+<nav>
+
+{
+links.map(link => (
+
+<a
+href={link.href}
+class="nav-link"
+>
+{link.name}
+</a>
+
+))
+}
+
+</nav>
+
+<button id="menuBtn">
+
+☰
+
+</button>
+
+</div>
+
+</header>
+
+<script>
+
+const navbar=document.getElementById("navbar");
+
+const menu=document.querySelector("nav");
+
+const btn=document.getElementById("menuBtn");
+
+btn?.addEventListener("click",()=>{
+
+menu?.classList.toggle("open");
+
+});
+
+window.addEventListener("scroll",()=>{
+
+navbar?.classList.toggle("scrolled",window.scrollY>80);
+
+});
+
+const sections=document.querySelectorAll("section[id]");
+
+const links=document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach((section) => {
+
+    const element = section;
+
+    const top = element.getBoundingClientRect().top + window.scrollY - 140;
+
+    if (window.scrollY >= top) {
+        current = element.id;
+    }
+
+});
+
+links.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#" + current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+</script>

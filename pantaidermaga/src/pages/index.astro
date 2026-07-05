@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { timeline, evidence, locations, sources } from '../data/site';
+---
+
+<BaseLayout title="Pantai Dermaga — Muzium Digital" description="Muzium digital sejarah Pantai Dermaga, Tanjung Kemuning dan Port Dickson.">
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Pantai Dermaga">Pantai Dermaga</a>
+    <nav class="desktop-nav" aria-label="Navigasi utama">
+      <a href="#sejarah">Sejarah</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#sumber">Sumber</a>
+      <a href="#petisyen">Petisyen</a>
+    </nav>
+    <button class="menu-button" data-menu-button aria-label="Buka menu">☰</button>
+  </header>
+
+  <nav class="mobile-nav" data-mobile-nav aria-label="Navigasi mudah alih">
+    <a href="#sejarah">Sejarah</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#sumber">Sumber</a>
+    <a href="#petisyen">Petisyen</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero" id="sejarah">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="pill">Sejarah yang dilupakan</p>
+          <h1>Sebelum Port Dickson, kawasan ini dikenali sebagai <span>Tanjung Kemuning.</span></h1>
+          <p class="lead">Sebuah muzium digital untuk mengangkat semula sejarah pesisir Pantai Dermaga melalui peta lama, rekod arkib, tokoh tempatan dan memori komuniti.</p>
+          <div class="actions">
+            <a class="btn primary" href="#galeri">Terokai bukti</a>
+            <a class="btn secondary" href="#petisyen">Sokong petisyen</a>
+          </div>
+        </div>
+        <figure class="portrait reveal">
+          <img src="/images/hero/raja-bot.png" alt="Ilustrasi Raja Bot memegang dokumen sejarah" />
+          <figcaption>Raja Bot dan perubahan landskap Lukut–Port Dickson.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="intro section-pad">
+      <div class="container narrow reveal">
+        <p class="kicker">Soalan utama</p>
+        <h2>Jika bukan Port Dickson, apakah nama dan cerita asal kawasan ini?</h2>
+        <p>Projek ini menyusun naratif yang lebih kemas: bukan sekadar menukar nama, tetapi menjelaskan lapisan sejarah Melayu, laluan perdagangan, tokoh Lukut dan perubahan yang berlaku selepas campur tangan British.</p>
+      </div>
+    </section>
+
+    <section class="section-pad alt" id="galeri">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="kicker">Galeri bukti</p>
+          <h2>Bahan visual dan dokumen yang menguatkan naratif.</h2>
+          <p>Setiap kad boleh dikembangkan kemudian kepada halaman sumber penuh, imbasan dokumen, nota arkib dan pautan rujukan.</p>
+        </div>
+        <div class="evidence-layout">
+          <article class="map-card reveal">
+            <img src="/images/maps/1875-map.jpg" alt="Peta lama kawasan Linggi dan Lukut" />
+            <div>
+              <p class="pill dark">Peta lama</p>
+              <h3>Linggi, Lukut dan jaringan pesisir</h3>
+              <p>Peta lama menjadi latar visual utama untuk menunjukkan bahawa kawasan ini mempunyai sejarah yang lebih panjang daripada nama kolonial Port Dickson.</p>
+            </div>
+          </article>
+          <div class="evidence-list">
+            {evidence.map((item) => (
+              <article class="info-card reveal">
+                <span>{item.meta}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad timeline-section">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="kicker">Kronologi</p>
+          <h2>Perjalanan sejarah Pantai Dermaga.</h2>
+        </div>
+        <div class="timeline">
+          {timeline.map((item) => (
+            <article class="timeline-item reveal">
+              <div class="time">{item.year}</div>
+              <div class="node" aria-hidden="true"></div>
+              <div class="timeline-card">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad raja">
+      <div class="container raja-grid">
+        <div class="reveal">
+          <p class="kicker">Tokoh</p>
+          <h2>Raja Bot: saksi perubahan Lukut.</h2>
+          <p>Raja Bot bin Raja Jumaat sering dikaitkan dengan fasa akhir pengaruh Melayu di Lukut sebelum perubahan pentadbiran dan ekonomi membentuk identiti Port Dickson yang dikenali hari ini.</p>
+          <div class="stat-grid">
+            <div><strong>Raja Lukut</strong><span>Gelaran sejarah</span></div>
+            <div><strong>1800-an</strong><span>Konteks masa</span></div>
+          </div>
+        </div>
+        <div class="quote-card reveal">
+          <p>“Naratif tempatan perlu dibaca bersama peta, nama tempat dan ingatan masyarakat — bukan hanya melalui nama yang ditinggalkan pentadbiran kolonial.”</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="sumber">
+      <div class="container source-grid">
+        <div class="section-heading reveal">
+          <p class="kicker">Sumber</p>
+          <h2>Struktur rujukan untuk versi klien.</h2>
+          <p>Bahagian ini disediakan supaya klien boleh menambah pautan rasmi, nombor arkib, PDF dan kredit gambar tanpa mengubah reka bentuk utama.</p>
+        </div>
+        <div class="source-list">
+          {sources.map((source) => <div class="source-item reveal">{source}</div>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad alt" id="petisyen">
+      <div class="container petition reveal">
+        <p class="kicker">Petisyen komuniti</p>
+        <h2>Sokong usaha mengangkat semula sejarah Pantai Dermaga.</h2>
+        <p>Gunakan bahagian ini untuk meletakkan pautan Google Form, Change.org, borang rasmi atau kempen komuniti. CTA sudah disiapkan untuk kegunaan klien.</p>
+        <a class="btn primary" href="mailto:info@pantaidermaga.local?subject=Sokongan%20Pantai%20Dermaga">Saya mahu sokong</a>
+      </div>
+    </section>
+
+    <section class="section-pad places">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="kicker">Lokasi berkaitan</p>
+          <h2>Peta naratif lapangan.</h2>
+        </div>
+        <div class="places-grid">
+          {locations.map((item) => (
+            <article class="place-card reveal">
+              <span>{item.year}</span>
+              <h3>{item.name}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <strong>Pantai Dermaga</strong>
+      <span>© 2026 Muzium Digital. Dibina untuk naratif sejarah tempatan.</span>
+    </div>
+  </footer>
+</BaseLayout>

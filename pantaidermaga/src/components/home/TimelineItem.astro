@@ -1,0 +1,25 @@
+---
+const { item, index } = Astro.props;
+
+const left = index % 2 === 0;
+---
+
+<div class={`timeline-item ${left ? "left" : "right"}`}>
+
+<div class="timeline-dot"></div>
+
+<div class="card timeline-card reveal">
+
+<span class="year">
+
+{item.year}
+
+</span>
+
+<h3>{item.title}</h3>
+
+<p>{item.description}</p>
+
+</div>
+
+</div>

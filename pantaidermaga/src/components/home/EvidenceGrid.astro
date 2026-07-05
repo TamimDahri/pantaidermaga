@@ -1,0 +1,41 @@
+---
+import { evidences } from "../../data/evidence";
+import EvidenceCard from "./EvidenceCard.astro";
+---
+
+<section id="evidence">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="eyebrow">
+                Bukti Sejarah
+            </span>
+
+            <h2>
+                Bukti Awal yang Mendahului
+                Nama Port Dickson
+            </h2>
+
+            <p>
+                Semua bukti di bawah diambil daripada
+                peta lama, dokumen arkib dan rekod
+                sejarah yang boleh dirujuk.
+            </p>
+
+        </div>
+
+        <div class="grid">
+
+            {
+                evidences.map(item => (
+                    <EvidenceCard evidence={item} />
+                ))
+            }
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+interface Props { title?: string; description?: string }
+const { title = 'Pantai Dermaga', description = 'Muzium Digital Pantai Dermaga' } = Astro.props;
+---
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f8f4ec" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/icons/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+    <script is:inline>
+      const header = document.querySelector('[data-header]');
+      const menuBtn = document.querySelector('[data-menu-button]');
+      const mobileNav = document.querySelector('[data-mobile-nav]');
+      const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 20);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      menuBtn?.addEventListener('click', () => mobileNav?.classList.toggle('open'));
+      mobileNav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => mobileNav.classList.remove('open')));
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      }), { threshold: 0.14 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+---
+import { timeline } from "../../data/timeline";
+import TimelineItem from "./TimelineItem.astro";
+---
+
+<section id="timeline">
+
+<div class="container">
+
+<div class="section-header">
+
+<span class="eyebrow">
+
+Kronologi
+
+</span>
+
+<h2>
+
+Perjalanan Sejarah Pantai Dermaga
+
+</h2>
+
+</div>
+
+<div class="timeline">
+
+{
+timeline.map((item,index)=>(
+
+<TimelineItem
+
+item={item}
+
+index={index}
+
+/>
+
+))
+}
+
+</div>
+
+</div>
+
+</section>

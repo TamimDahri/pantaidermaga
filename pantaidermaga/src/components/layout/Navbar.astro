@@ -1,0 +1,58 @@
+---
+
+const nav = [
+
+{
+title:"Sejarah",
+url:"#sejarah"
+},
+
+{
+title:"Galeri",
+url:"#galeri"
+},
+
+{
+title:"Sumber",
+url:"#sumber"
+},
+
+{
+title:"Petisyen",
+url:"#petisyen"
+}
+
+];
+
+---
+
+<header class="navbar">
+
+<div class="container nav-wrapper">
+
+<a href="/" class="logo">
+
+Pantai Dermaga
+
+</a>
+
+<nav>
+
+{
+nav.map(item=>
+
+<a href={item.url}>
+
+{item.title}
+
+</a>
+
+)
+
+}
+
+</nav>
+
+</div>
+
+</header>

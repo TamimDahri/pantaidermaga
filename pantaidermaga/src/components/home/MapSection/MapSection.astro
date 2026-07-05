@@ -1,0 +1,55 @@
+---
+import { locations } from "../../../data/people";
+import LocationCard from "./LocationCard.astro";
+---
+
+<section id="map">
+
+<div class="container">
+
+<div class="section-header">
+
+<span class="eyebrow">
+
+Peta Sejarah
+
+</span>
+
+<h2>
+
+Menelusuri Pantai Dermaga
+
+</h2>
+
+</div>
+
+<div class="map-grid">
+
+<div class="map-image">
+
+<img
+src="/images/maps/1875-map.jpg"
+alt="Peta Lama"
+/>
+
+</div>
+
+<div class="map-sidebar">
+
+{
+
+locations.map(location=>(
+
+<LocationCard location={location}/>
+
+))
+
+}
+
+</div>
+
+</div>
+
+</div>
+
+</section>
