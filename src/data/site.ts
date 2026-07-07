@@ -20,8 +20,40 @@ export const locations = [
 ];
 
 export const sources = [
-  'Peta lama dan rekod topografi kawasan Linggi, Lukut dan Sungai Ujong',
-  'Rujukan sejarah Lukut, Raja Jumaat dan Raja Bot',
-  'Dokumentasi tempatan tentang Tanjung Kemuning, Bahasa Kapor dan Pengkalan Kempas',
-  'Bahan arkib, foto tapak dan catatan komuniti setempat',
+  {
+    image: "/images/gallery/001.jpg",
+    title: "Kempen Penjenamaan Pantai Dermaga",
+  },
+  {
+    image: "/images/gallery/002.jpg",
+    title: "Tanjung Kemuning 1",
+  },
+  {
+    image: "/images/gallery/003.jpg",
+    title: "Tanjung Kemuning 2",
+  },
+  {
+    image: "/images/gallery/004.jpg",
+    title: "Tanjung Kemuning 3",
+  },
+  {
+    image: "/images/gallery/005.jpg",
+    title: "Tanjung Kemuning 4",
+  },
+  {
+    image: "/images/gallery/006.jpg",
+    title: "Kota Lukut",
+  },
+  {
+    image: "/images/gallery/007.jpg",
+    title: "Masjid Kg Bahasa Kapor",
+  },
+  {
+    image: "/images/gallery/008.jpg",
+    title: "Dickson Penjajah",
+  },
+  {
+    image: "/images/gallery/009.jpg",
+    title: "Peta Penjajah",
+  },
 ];

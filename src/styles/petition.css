@@ -1,0 +1,240 @@
+.petition-section {
+  padding: 7rem 1.5rem;
+  background:
+    radial-gradient(circle at top left, rgba(179, 137, 75, 0.16), transparent 32rem),
+    linear-gradient(180deg, #f8f3ea 0%, #efe6d7 100%);
+}
+
+.petition-section .section-heading {
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.petition-section .eyebrow {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: rgba(179, 137, 75, 0.16);
+  color: #9a7440;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+.petition-section h2 {
+  margin: 0;
+  color: #123d2a;
+  font-family: Georgia, serif;
+  font-size: clamp(2.3rem, 6vw, 5rem);
+  line-height: 0.95;
+}
+
+.petition-section .section-heading p {
+  margin: 1.3rem auto 0;
+  max-width: 620px;
+  color: #665f55;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.petition-counter {
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  padding: 2rem;
+  border: 1px solid rgba(179, 137, 75, 0.25);
+  border-radius: 28px;
+  background: rgba(255, 252, 245, 0.82);
+  box-shadow: 0 24px 70px rgba(64, 47, 26, 0.13);
+  text-align: center;
+}
+
+.counter-icon {
+  font-size: 2rem;
+  margin-bottom: 0.7rem;
+}
+
+.counter-number {
+  display: block;
+  color: #123d2a;
+  font-family: Georgia, serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.counter-label {
+  display: block;
+  margin-top: 0.8rem;
+  color: #7a6241;
+  font-weight: 700;
+}
+
+.petition-form {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 32px;
+  background: #fffaf2;
+  border: 1px solid rgba(179, 137, 75, 0.22);
+  box-shadow: 0 28px 90px rgba(64, 47, 26, 0.15);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.petition-form label {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #123d2a;
+  font-weight: 800;
+}
+
+.petition-form input,
+.petition-form textarea {
+  width: 100%;
+  border: 1px solid rgba(18, 61, 42, 0.16);
+  border-radius: 16px;
+  background: #fff;
+  padding: 0.95rem 1rem;
+  color: #25231f;
+  font: inherit;
+  outline: none;
+}
+
+.petition-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.petition-form input:focus,
+.petition-form textarea:focus {
+  border-color: #b3894b;
+  box-shadow: 0 0 0 4px rgba(179, 137, 75, 0.14);
+}
+
+.petition-form .consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: #62584c;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.petition-form .consent input {
+  width: auto;
+  margin-top: 0.25rem;
+}
+
+.petition-form button {
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 1rem 1.3rem;
+  background: #123d2a;
+  color: #fffaf2;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.petition-form button:hover {
+  background: #9a7440;
+}
+
+.petition-status {
+  margin: 1rem 0 0;
+  text-align: center;
+  color: #123d2a;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .petition-section {
+    padding: 4.5rem 1rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .petition-form,
+  .petition-counter {
+    border-radius: 24px;
+    padding: 1.3rem;
+  }
+}
+
+.petition-form button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.recent-signatures {
+  max-width: 720px;
+  margin: 3rem auto 0;
+  padding: 2rem;
+  border-radius: 28px;
+  background: rgba(255, 252, 245, 0.9);
+  border: 1px solid rgba(179, 137, 75, 0.22);
+  box-shadow: 0 24px 70px rgba(64, 47, 26, 0.12);
+}
+
+.recent-signatures h3 {
+  margin: 0 0 1.5rem;
+  color: #123d2a;
+  font-family: Georgia, serif;
+  font-size: 1.8rem;
+}
+
+.recent-signatures ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-signatures li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(179, 137, 75, 0.18);
+}
+
+.recent-signatures li:last-child {
+  border-bottom: 0;
+}
+
+.recent-signatures strong {
+  display: block;
+  color: #123d2a;
+}
+
+.recent-signatures span {
+  display: block;
+  margin-top: 0.25rem;
+  color: #9a7440;
+  font-size: 0.95rem;
+}
+
+.recent-signatures small {
+  color: #766b5e;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .recent-signatures li {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/admin.css";
+---
+
+<BaseLayout title="Admin Login">
+  <main class="admin-page">
+    <section class="admin-card">
+      <p class="eyebrow">Admin Access</p>
+      <h1>Login Admin</h1>
+
+      <form id="admin-login-form" class="admin-login-form">
+        <label>
+          <span>Email</span>
+          <input name="email" type="email" required />
+        </label>
+
+        <label>
+          <span>Password</span>
+          <input name="password" type="password" required />
+        </label>
+
+        <button class="admin-export" type="submit">
+          Login
+        </button>
+
+        <p id="admin-login-status"></p>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    import "../scripts/admin-login";
+  </script>
+</BaseLayout>

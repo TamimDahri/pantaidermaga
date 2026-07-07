@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { timeline, evidence, locations, sources } from '../data/site';
+import PetitionCounter from "../components/PetitionCounter.astro";
+import PetitionForm from "../components/PetitionForm.astro";
+import "../styles/petition.css";
+import RecentSignatures from "../components/RecentSignatures.astro";
 ---
 
 <BaseLayout title="Pantai Dermaga — Muzium Digital" description="Muzium digital sejarah Pantai Dermaga, Tanjung Kemuning dan Port Dickson.">
@@ -46,7 +50,7 @@ import { timeline, evidence, locations, sources } from '../data/site';
       <div class="container narrow reveal">
         <p class="kicker">Soalan utama</p>
         <h2>Jika bukan Port Dickson, apakah nama dan cerita asal kawasan ini?</h2>
-        <p>Projek ini menyusun naratif yang lebih kemas: bukan sekadar menukar nama, tetapi menjelaskan lapisan sejarah Melayu, laluan perdagangan, tokoh Lukut dan perubahan yang berlaku selepas campur tangan British.</p>
+        <p>Projek ini menyusun sejarah yang lebih kemas: bukan sekadar menukar nama, tetapi menjelaskan lapisan sejarah Melayu, laluan perdagangan, tokoh Lukut dan perubahan yang berlaku selepas campur tangan British.</p>
       </div>
     </section>
 
@@ -54,8 +58,8 @@ import { timeline, evidence, locations, sources } from '../data/site';
       <div class="container">
         <div class="section-heading reveal">
           <p class="kicker">Galeri bukti</p>
-          <h2>Bahan visual dan dokumen yang menguatkan naratif.</h2>
-          <p>Setiap kad boleh dikembangkan kemudian kepada halaman sumber penuh, imbasan dokumen, nota arkib dan pautan rujukan.</p>
+          <h2>Bahan visual dan dokumen yang menyokong penjenamaan.</h2>
+          <p>Sumber penuh, imbasan dokumen, nota arkib dan pautan rujukan.</p>
         </div>
         <div class="evidence-layout">
           <article class="map-card reveal">
@@ -101,43 +105,75 @@ import { timeline, evidence, locations, sources } from '../data/site';
     </section>
 
     <section class="section-pad raja">
+      <div class="identity-bg">
+        <img
+  src="/images/people/islah-wahyudi-bg.jpg"
+  alt="Islah Wahyudi"
+/>
+      </div>
       <div class="container raja-grid">
         <div class="reveal">
           <p class="kicker">Tokoh</p>
-          <h2>Raja Bot: saksi perubahan Lukut.</h2>
-          <p>Raja Bot bin Raja Jumaat sering dikaitkan dengan fasa akhir pengaruh Melayu di Lukut sebelum perubahan pentadbiran dan ekonomi membentuk identiti Port Dickson yang dikenali hari ini.</p>
+          <h2>Randuk: Pejuang Identiti Kebangsaan.</h2>
+          <p>Islah Wahyudi atau lebih dikenali sebagai Randuk merangkap Pengerusi Pertubuhan Pemerkasaan Identiti Malaysia adalah seorang aktivis yang telah lama memperjuangkan identiti sebenar Malaysia terutamanya penjenamaan nama di tempat kelahiran beliau sendiri.</p>
           <div class="stat-grid">
-            <div><strong>Raja Lukut</strong><span>Gelaran sejarah</span></div>
-            <div><strong>1800-an</strong><span>Konteks masa</span></div>
+            <div><strong>Randuk</strong><span>Islah Wahyudi</span></div>
+            <div><strong>Identiti Malaysia</strong><span>Anak Watan Pantai Dermaga</span></div>
           </div>
         </div>
         <div class="quote-card reveal">
-          <p>“Naratif tempatan perlu dibaca bersama peta, nama tempat dan ingatan masyarakat — bukan hanya melalui nama yang ditinggalkan pentadbiran kolonial.”</p>
+          <p>“Sejarah tanah ini bukan bermula dengan Dickson. Tindakan Gabenor British itu yang merampas Tanjung Kemuning lalu menukarkan nama kepada Port Dickson sekitar tahun 1889 telah menyebabkan Kampung Melayu Bahasa Kapor lenyap.”</p>
         </div>
       </div>
     </section>
 
-    <section class="section-pad" id="sumber">
-      <div class="container source-grid">
-        <div class="section-heading reveal">
-          <p class="kicker">Sumber</p>
-          <h2>Struktur rujukan untuk versi klien.</h2>
-          <p>Bahagian ini disediakan supaya klien boleh menambah pautan rasmi, nombor arkib, PDF dan kredit gambar tanpa mengubah reka bentuk utama.</p>
-        </div>
-        <div class="source-list">
-          {sources.map((source) => <div class="source-item reveal">{source}</div>)}
-        </div>
+    <section class="section-pad sources-gallery-section" id="sumber">
+  <div class="container">
+    <div class="sources-header reveal">
+      <div>
+        <p class="kicker">Sumber</p>
+        <h2>Galeri Sumber.</h2>
       </div>
-    </section>
 
-    <section class="section-pad alt" id="petisyen">
-      <div class="container petition reveal">
-        <p class="kicker">Petisyen komuniti</p>
-        <h2>Sokong usaha mengangkat semula sejarah Pantai Dermaga.</h2>
-        <p>Gunakan bahagian ini untuk meletakkan pautan Google Form, Change.org, borang rasmi atau kempen komuniti. CTA sudah disiapkan untuk kegunaan klien.</p>
-        <a class="btn primary" href="mailto:info@pantaidermaga.local?subject=Sokongan%20Pantai%20Dermaga">Saya mahu sokong</a>
+      <p>
+        Koleksi rujukan visual, peta lama, arkib dan bahan komuniti berkaitan
+        Pantai Dermaga dan kawasan sekitarnya.
+      </p>
+    </div>
+
+    <div class="sources-carousel-wrap">
+      <button class="gallery-arrow gallery-prev" type="button" aria-label="Sebelum">
+        ‹
+      </button>
+
+      <div class="sources-image-scroll" data-sources-scroll>
+        {sources.map((item) => (
+          <figure class="source-image-card reveal">
+            <img src={item.image} alt={item.title} loading="lazy" />
+          </figure>
+        ))}
       </div>
-    </section>
+
+      <button class="gallery-arrow gallery-next" type="button" aria-label="Seterusnya">
+        ›
+      </button>
+    </div>
+
+    <p class="drag-hint">☝️ Seret untuk melihat lebih banyak</p>
+  </div>
+</section>
+
+    <section class="section petition-section" id="petisyen">
+  <div class="section-heading">
+    <span class="eyebrow">Petisyen Rasmi</span>
+    <h2>Penjenamaan Semula Nama Pantai Dermaga</h2>
+    <p>Sertai sokongan orang ramai untuk memelihara sejarah kawasan ini.</p>
+  </div>
+
+  <PetitionCounter />
+  <PetitionForm />
+  <RecentSignatures />
+</section>
 
     <section class="section-pad places">
       <div class="container">
@@ -161,7 +197,10 @@ import { timeline, evidence, locations, sources } from '../data/site';
   <footer class="footer">
     <div class="container footer-inner">
       <strong>Pantai Dermaga</strong>
-      <span>© 2026 Muzium Digital. Dibina untuk naratif sejarah tempatan.</span>
+      <span>© 2026 Muzium Digital. Dibina untuk memulihara sejarah tempatan.</span>
     </div>
   </footer>
+  <script>
+  import "../scripts/sources-gallery";
+</script>
 </BaseLayout>

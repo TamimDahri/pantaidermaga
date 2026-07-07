@@ -1,0 +1,44 @@
+<form class="petition-form" id="petition-form">
+  <div class="form-grid">
+    <label>
+      <span>Nama penuh</span>
+      <input name="full_name" required />
+    </label>
+
+    <label>
+      <span>Email</span>
+      <input name="email" type="email" required />
+    </label>
+  </div>
+
+  <label>
+    <span>Negeri</span>
+    <input name="state" placeholder="Contoh: Johor" />
+  </label>
+
+  <label>
+    <span>Mesej sokongan</span>
+    <textarea name="message" placeholder="Tulis mesej ringkas jika mahu"></textarea>
+  </label>
+
+  <label class="consent">
+    <input type="checkbox" name="consent" required />
+    <span>Saya bersetuju maklumat ini digunakan untuk tujuan petisyen.</span>
+  </label>
+
+  <div
+  class="cf-turnstile"
+  data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
+></div>
+
+  <button type="submit">
+    Tandatangan Sekarang
+  </button>
+
+  <p id="petition-status" class="petition-status"></p>
+</form>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+  import "../scripts/petition";
+</script>

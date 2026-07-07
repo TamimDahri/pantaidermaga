@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/admin.css";
+---
+
+<BaseLayout title="Admin Petisyen">
+  <main class="admin-page" id="admin-page" hidden>
+    <section class="admin-card">
+      <button class="admin-logout" id="admin-logout" type="button">
+        Logout
+      </button>
+
+      <p class="eyebrow">Admin Dashboard</p>
+      <h1>Petisyen Pantai Dermaga</h1>
+
+      <div class="admin-stat">
+        <span id="admin-count">0</span>
+        <p>Jumlah tandatangan</p>
+      </div>
+
+      <button class="admin-export" id="export-csv" type="button">
+        Export CSV
+      </button>
+      <button class="admin-export" id="download-pdf" type="button">
+  Generate PDF
+</button>
+    </section>
+
+    <section class="admin-table-card">
+      <h2>100 Tandatangan Terkini</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Email</th>
+              <th>Negeri</th>
+              <th>Mesej</th>
+              <th>Tarikh</th>
+            </tr>
+          </thead>
+          <tbody id="admin-signatures"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    import "../scripts/admin-dashboard";
+    import "../scripts/admin-export";
+    import "../scripts/admin-logout";
+    import "../scripts/admin-pdf";
+  </script>
+</BaseLayout>

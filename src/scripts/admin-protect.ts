@@ -1,0 +1,7 @@
+import { supabase } from "../lib/supabase";
+
+const { data } = await supabase.auth.getSession();
+
+if (!data.session) {
+  window.location.href = "/admin-login";
+}

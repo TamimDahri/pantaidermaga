@@ -1,0 +1,35 @@
+---
+import { supabase } from "../lib/supabase";
+
+type RecentSignature = {
+  full_name: string;
+  state: string | null;
+  created_at: string;
+};
+
+const { data } = await supabase.rpc("get_recent_signatures");
+
+const signatures = (data ?? []) as RecentSignature[];
+---
+
+<div class="recent-signatures">
+  <h3>Penandatangan Terkini</h3>
+
+  {signatures.length ? (
+    <ul>
+      {signatures.map((item) => (
+        <li>
+          <div>
+            <strong>{item.full_name}</strong>
+            <span>{item.state || "Malaysia"}</span>
+          </div>
+          <small>
+            {new Date(item.created_at).toLocaleDateString("ms-MY")}
+          </small>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>Belum ada tandatangan.</p>
+  )}
+</div>
