@@ -1,28 +1,38 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { timeline, evidence, locations, sources } from '../data/site';
+import { timeline, locations, historyGallery, colonialGallery } from '../data/site';
 import PetitionCounter from "../components/PetitionCounter.astro";
 import PetitionForm from "../components/PetitionForm.astro";
 import "../styles/petition.css";
 import RecentSignatures from "../components/RecentSignatures.astro";
+import { evidences } from '../data/evidence';
+
+const heroEvidence = evidences[0];
+const sideEvidences = evidences.slice(1);
 ---
 
-<BaseLayout title="Pantai Dermaga — Muzium Digital" description="Muzium digital sejarah Pantai Dermaga, Tanjung Kemuning dan Port Dickson.">
+<BaseLayout title="Pantai Dermaga | Pemerkasaan Identiti Kebangsaan" description="Muzium digital sejarah Pantai Dermaga, Tanjung Kemuning dan Port Dickson.">
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="Pantai Dermaga">Pantai Dermaga</a>
     <nav class="desktop-nav" aria-label="Navigasi utama">
-      <a href="#sejarah">Sejarah</a>
+      <a href="#sejarah">Utama</a>
+      <a href="#artikel">Artikel</a>
+      <a href="#kronologi">Kronologi</a>
       <a href="#galeri">Galeri</a>
-      <a href="#sumber">Sumber</a>
+      <a href="#pejuang">Pejuang</a>
       <a href="#petisyen">Petisyen</a>
+      <a href="#media">Media</a>
+      <a href="#sumbangan">Sumbangan</a>
     </nav>
     <button class="menu-button" data-menu-button aria-label="Buka menu">☰</button>
   </header>
 
   <nav class="mobile-nav" data-mobile-nav aria-label="Navigasi mudah alih">
-    <a href="#sejarah">Sejarah</a>
+    <a href="#sejarah">Utama</a>
+    <a href="#artikel">Artikel</a>
+    <a href="#kronologi">Kronologi</a>
     <a href="#galeri">Galeri</a>
-    <a href="#sumber">Sumber</a>
+    <a href="#pejuang">Pejuang</a>
     <a href="#petisyen">Petisyen</a>
   </nav>
 
@@ -32,16 +42,18 @@ import RecentSignatures from "../components/RecentSignatures.astro";
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <p class="pill">Sejarah yang dilupakan</p>
-          <h1>Sebelum Port Dickson, kawasan ini dikenali sebagai <span>Tanjung Kemuning.</span></h1>
-          <p class="lead">Sebuah muzium digital untuk mengangkat semula sejarah pesisir Pantai Dermaga melalui peta lama, rekod arkib, tokoh tempatan dan memori komuniti.</p>
+          <h1>Sebelum Port Dickson, kawasan ini dikenali sebagai <span>Tanjong Kemuning.</span></h1>
+          <p class="lead">Usaha nyah identiti penjajah telah dimulakan. North Borneo ke Sabah (1963), 
+            Jalan Dickson ke Jalan Masjid India (1965), Jesselton ke Kota Kinabalu (1965), 
+            Province Wellesley ke Seberang Prai (1972), Port Swettenham ke Pelabuhan Kelang (1972) dan Telok Anson ke Teluk Intan (1982).</p>
           <div class="actions">
-            <a class="btn primary" href="#galeri">Terokai bukti</a>
+            <a class="btn primary" href="#artikel">Terokai bukti</a>
             <a class="btn secondary" href="#petisyen">Sokong petisyen</a>
           </div>
         </div>
         <figure class="portrait reveal">
-          <img src="/images/hero/raja-bot.png" alt="Ilustrasi Raja Bot memegang dokumen sejarah" />
-          <figcaption>Raja Bot dan perubahan landskap Lukut–Port Dickson.</figcaption>
+          <img src="/images/hero/orangtua.jpeg" alt="Orang tua dari Kampung Bahasa Kapor" />
+          <figcaption>Gambar orang Kampung Bahasa Kapor, Tanjong Kemuning, awal 1900an. Sumber : Arkib British</figcaption>
         </figure>
       </div>
     </section>
@@ -54,36 +66,103 @@ import RecentSignatures from "../components/RecentSignatures.astro";
       </div>
     </section>
 
-    <section class="section-pad alt" id="galeri">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="kicker">Galeri bukti</p>
-          <h2>Bahan visual dan dokumen yang menyokong penjenamaan.</h2>
-          <p>Sumber penuh, imbasan dokumen, nota arkib dan pautan rujukan.</p>
-        </div>
-        <div class="evidence-layout">
-          <article class="map-card reveal">
-            <img src="/images/maps/1875-map.jpg" alt="Peta lama kawasan Linggi dan Lukut" />
-            <div>
-              <p class="pill dark">Peta lama</p>
-              <h3>Linggi, Lukut dan jaringan pesisir</h3>
-              <p>Peta lama menjadi latar visual utama untuk menunjukkan bahawa kawasan ini mempunyai sejarah yang lebih panjang daripada nama kolonial Port Dickson.</p>
-            </div>
-          </article>
-          <div class="evidence-list">
-            {evidence.map((item) => (
-              <article class="info-card reveal">
-                <span>{item.meta}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section-pad alt" id="artikel">
+  <div class="container">
 
-    <section class="section-pad timeline-section">
+    <div class="section-heading reveal">
+      <p class="kicker">Artikel</p>
+      <h2>Bahan visual dan dokumen yang menyokong penjenamaan.</h2>
+      <p>
+        Sumber penuh, imbasan dokumen, nota arkib dan pautan rujukan.
+      </p>
+    </div>
+
+    <div class="evidence-layout">
+
+      <!-- Kad Besar -->
+
+      <article
+class="map-card reveal evidence-open"
+
+data-category={heroEvidence.category}
+
+data-title={heroEvidence.title}
+
+data-image={heroEvidence.image}
+
+data-content={JSON.stringify(heroEvidence.article)}
+>
+
+        <img src={heroEvidence.image} alt={heroEvidence.title} />
+
+        <div>
+
+          <p class="pill dark">{heroEvidence.category}</p>
+
+          <h3>{heroEvidence.title}</h3>
+
+          <p>{heroEvidence.short}</p>
+
+        </div>
+
+      </article>
+
+      <!-- Kad Kecil -->
+
+     <div class="evidence-list">
+
+  {sideEvidences.map((item) => (
+
+    <article
+class="info-card reveal evidence-open"
+
+data-category={item.category}
+
+data-title={item.title}
+
+data-image={item.image}
+
+data-content={JSON.stringify(item.article)}
+>
+
+      <span>{item.category}</span>
+
+      <h3>{item.title}</h3>
+
+      <p>{item.short}</p>
+
+    </article>
+
+  ))}
+
+</div>
+
+    </div>
+
+  </div>
+</section>
+
+<div id="evidence-modal">
+
+  <div class="evidence-overlay"></div>
+
+  <div class="evidence-content">
+
+    <button id="closeEvidence">
+      ✕
+    </button>
+
+    <img id="evidenceImage" />
+
+    <h2 id="evidenceTitle"></h2>
+
+    <div id="evidenceArticle"></div>
+
+  </div>
+
+</div>
+
+    <section class="section-pad timeline-section" id="kronologi">
       <div class="container">
         <div class="section-heading centered reveal">
           <p class="kicker">Kronologi</p>
@@ -104,7 +183,81 @@ import RecentSignatures from "../components/RecentSignatures.astro";
       </div>
     </section>
 
-    <section class="section-pad raja">
+
+  <section class="section-pad gallery-section" id="galeri">
+  <div class="container">
+
+    <div class="sources-header reveal">
+      <div>
+        <p class="kicker">Galeri</p>
+        <h2>Dokumentasi Visual.</h2>
+      </div>
+
+      <p>
+        Koleksi visual sejarah serta dokumentasi berkaitan usaha mengembalikan
+        nama Pantai Dermaga.
+      </p>
+    </div>
+
+    <!-- GALERI 1 -->
+
+    <h3 class="gallery-subtitle">Galeri Sejarah</h3>
+
+    <div class="sources-carousel-wrap">
+
+      <button class="gallery-arrow gallery-prev">‹</button>
+
+      <div class="sources-image-scroll" data-gallery>
+
+        {historyGallery.map((item)=>(
+          <figure class="source-image-card reveal clickable-gallery">
+            <img
+src={item.image}
+alt={item.title}
+data-title={item.title}>
+            <figcaption>{item.title}</figcaption>
+          </figure>
+        ))}
+
+      </div>
+
+      <button class="gallery-arrow gallery-next">›</button>
+
+    </div>
+
+
+    <!-- GALERI 2 -->
+
+    <h3 class="gallery-subtitle second-title">
+      Kesan Buruk Tinggalan Penjajah
+    </h3>
+
+    <div class="sources-carousel-wrap">
+
+      <button class="gallery-arrow gallery-prev">‹</button>
+
+      <div class="sources-image-scroll" data-gallery>
+
+        {colonialGallery.map((item)=>(
+          <figure class="source-image-card reveal clickable-gallery">
+            <img
+src={item.image}
+alt={item.title}
+data-title={item.title}>
+            <figcaption>{item.title}</figcaption>
+          </figure>
+        ))}
+
+      </div>
+
+      <button class="gallery-arrow gallery-next">›</button>
+
+    </div>
+
+  </div>
+</section>
+
+    <section class="section-pad raja" id="pejuang">
       <div class="identity-bg">
         <img
   src="/images/people/islah-wahyudi-bg.jpg"
@@ -113,7 +266,7 @@ import RecentSignatures from "../components/RecentSignatures.astro";
       </div>
       <div class="container raja-grid">
         <div class="reveal">
-          <p class="kicker">Tokoh</p>
+          <p class="kicker">Pejuang</p>
           <h2>Randuk: Pejuang Identiti Kebangsaan.</h2>
           <p>Islah Wahyudi atau lebih dikenali sebagai Randuk merangkap Pengerusi Pertubuhan Pemerkasaan Identiti Malaysia adalah seorang aktivis yang telah lama memperjuangkan identiti sebenar Malaysia terutamanya penjenamaan nama di tempat kelahiran beliau sendiri.</p>
           <div class="stat-grid">
@@ -127,42 +280,6 @@ import RecentSignatures from "../components/RecentSignatures.astro";
       </div>
     </section>
 
-    <section class="section-pad sources-gallery-section" id="sumber">
-  <div class="container">
-    <div class="sources-header reveal">
-      <div>
-        <p class="kicker">Sumber</p>
-        <h2>Galeri Sumber.</h2>
-      </div>
-
-      <p>
-        Koleksi rujukan visual, peta lama, arkib dan bahan komuniti berkaitan
-        Pantai Dermaga dan kawasan sekitarnya.
-      </p>
-    </div>
-
-    <div class="sources-carousel-wrap">
-      <button class="gallery-arrow gallery-prev" type="button" aria-label="Sebelum">
-        ‹
-      </button>
-
-      <div class="sources-image-scroll" data-sources-scroll>
-        {sources.map((item) => (
-          <figure class="source-image-card reveal">
-            <img src={item.image} alt={item.title} loading="lazy" />
-          </figure>
-        ))}
-      </div>
-
-      <button class="gallery-arrow gallery-next" type="button" aria-label="Seterusnya">
-        ›
-      </button>
-    </div>
-
-    <p class="drag-hint">☝️ Seret untuk melihat lebih banyak</p>
-  </div>
-</section>
-
     <section class="section petition-section" id="petisyen">
   <div class="section-heading">
     <span class="eyebrow">Petisyen Rasmi</span>
@@ -175,32 +292,248 @@ import RecentSignatures from "../components/RecentSignatures.astro";
   <RecentSignatures />
 </section>
 
-    <section class="section-pad places">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="kicker">Lokasi berkaitan</p>
-          <h2>Peta naratif lapangan.</h2>
-        </div>
-        <div class="places-grid">
-          {locations.map((item) => (
-            <article class="place-card reveal">
-              <span>{item.year}</span>
-              <h3>{item.name}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  </main>
+    <section class="section-pad featured-section" id="media">
+  <div class="container">
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <strong>Pantai Dermaga</strong>
-      <span>© 2026 Muzium Digital. Dibina untuk memulihara sejarah tempatan.</span>
+    <div class="section-heading centered reveal">
+      <p class="kicker">Dipetik oleh</p>
+      <h2>Media yang pernah melaporkan usaha penjenamaan Pantai Dermaga.</h2>
     </div>
-  </footer>
+
+    <div class="featured-logos reveal">
+
+      <a href="https://www.google.com/amp/s/www.bharian.com.my/amp/berita/nasional/2025/09/1444499/kenapa-nama-port-dickson-jadi-sasaran-tukarlah-semua-sekali-mb" target="_blank" rel="noopener">
+        <img src="/images/media/bh.png" alt="Berita Harian">
+      </a>
+
+      <a href="https://tvpertiwi.com/2025/10/10/kembalikan-maruah-nama-melayu-wajar-port-dickson-diganti-pantai-dermaga/" target="_blank" rel="noopener">
+        <img src="/images/media/tvpertiwi.png" alt="TV Pertiwi">
+      </a>
+
+      <a href="https://www.hmetro.com.my/mutakhir/2025/09/1264213/isu-tukar-nama-port-dickson-perlu-dijelaskan-elak-kekeliruan-pakar" target="_blank" rel="noopener">
+        <img src="/images/media/hmetro.png" alt="Harian Metro">
+      </a>
+
+      <a href="https://www.orientaldaily.com.my/news/central/2025/09/16/762015" target="_blank" rel="noopener">
+        <img src="/images/media/oriental.jpg" alt="Oriental Daily">
+      </a>
+
+      <a href="https://www.google.com/amp/s/www.sinarharian.com.my/ampArticle/748224" target="_blank" rel="noopener">
+        <img src="/images/media/sinar.png" alt="Sinar Harian">
+      </a>
+
+      <a href="https://www.utusan.com.my/nasional/2022/03/nama-port-dickson-sudah-terkenal-sukar-jual-nama-baharu/" target="_blank" rel="noopener">
+        <img src="/images/media/utusan.png" alt="Utusan Malaysia">
+      </a>
+
+      <a href="https://www.kosmo.com.my/2025/09/23/tukar-nama-port-dickson-akan-cetus-kekeliruan/" target="_blank" rel="noopener">
+        <img src="/images/media/kosmo.png" alt="Kosmo">
+      </a>
+
+      <a href="https://www.freemalaysiatoday.com/category/nation/2025/04/10/exco-man-to-check-if-permit-given-for-street-sign-in-chinese" target="_blank" rel="noopener">
+        <img src="/images/media/fmt.png" alt="Free Malaysia Today">
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+  <section class="section-pad donation-section" id="sumbangan">
+  <div class="container">
+
+    <div class="donation-card">
+
+      <div class="donation-info">
+        <p class="kicker">Sumbangan Warisan</p>
+
+        <h2>Sokong Usaha Pemeliharaan Sejarah</h2>
+
+        <p>
+          Setiap sumbangan membantu usaha penyelidikan, pendigitalan arkib
+          serta pemeliharaan sejarah Pantai Dermaga untuk generasi akan datang.
+        </p>
+      </div>
+
+      <div class="donation-bank">
+
+        <p class="bank-name">Bank Islam</p>
+
+        <p class="bank-owner">
+          Pertubuhan Pemerkasaan Identiti Malaysia
+        </p>
+
+        <div class="account-row">
+          <span id="account-number">1216801051629</span>
+
+          <button
+            id="copy-account"
+            class="copy-account-btn"
+            type="button"
+          >
+            📋 Salin No. Akaun
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <footer class="site-footer">
+  <div class="container footer-top">
+
+    <div class="footer-brand">
+      <img
+        src="/images/logos/pd-logo.png"
+        alt="Pantai Dermaga"
+      />
+    </div>
+
+    <div class="footer-partners">
+      <img src="/images/logos/partner-1.jpg" alt="Rakan 1" />
+      <img src="/images/logos/partner-2.png" alt="Rakan 2" />
+      <img src="/images/logos/partner-3.png" alt="Rakan 3" />
+    </div>
+
+    <div class="footer-social">
+
+      <a
+        href="https://www.facebook.com/people/Pantai-Dermaga/61592007711712/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Facebook"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor">
+  <path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0022 12z"/>
+</svg>
+      </a>
+
+      <a
+        href="https://www.instagram.com/pdkepantaidermaga?igsh=Y29iZ2JybzdqbWNn"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram">
+        <!-- Instagram SVG -->
+       <svg viewBox="0 0 24 24" fill="currentColor">
+  <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 4.5A5.5 5.5 0 1017.5 12 5.5 5.5 0 0012 6.5zm6.25-.88a1.25 1.25 0 11-1.25 1.25 1.25 1.25 0 011.25-1.25zM12 8a4 4 0 104 4 4 4 0 00-4-4z"/>
+</svg>
+      </a>
+
+      <a
+        href="https://threads.net/@pantaidermaga"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Threads">
+        <!-- Threads SVG -->
+        <svg viewBox="0 0 24 24" fill="currentColor">
+  <path d="M16.5 10.6c-.1-2.6-1.8-4-4.6-4-2.5 0-4.3 1.3-5 3.4l1.8.5c.4-1.4 1.5-2.1 3.1-2.1 1.7 0 2.7.8 2.8 2.3-1.2-.2-2.2-.2-3.3-.1-3.1.3-5 2-5 4.5 0 2.3 1.8 4 4.5 4 2 0 3.5-.8 4.4-2.2.4.8 1.1 1.4 2 1.8l.8-1.6c-.7-.3-1.2-.8-1.5-1.5.2-.9.3-1.9.2-3zm-4.8 6.7c-1.5 0-2.5-.8-2.5-2 0-1.4 1.2-2.3 3.2-2.5.8-.1 1.6-.1 2.5.1-.2 2.6-1.4 4.4-3.2 4.4z"/>
+</svg>
+
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Pantai Dermaga. Pemerkasaan Identiti Kebangsaan.
+  </div>
+</footer>
+
+<script>
+const copyButton = document.getElementById("copy-account");
+
+copyButton?.addEventListener("click", async () => {
+
+    await navigator.clipboard.writeText("1216801051629");
+
+    copyButton.textContent = "✓ Nombor Akaun Disalin";
+
+    setTimeout(() => {
+
+        copyButton.textContent = "📋 Salin No. Akaun";
+
+    },2000);
+
+});
+</script>
+
   <script>
   import "../scripts/sources-gallery";
+  import "../data/evidence";
 </script>
+
+<!-- ===========================
+     Gallery Lightbox
+=========================== -->
+
+<div class="gallery-lightbox" id="gallery-lightbox">
+
+  <div class="gallery-overlay"></div>
+
+  <div class="gallery-modal">
+
+    <button
+      class="gallery-close"
+      id="gallery-close"
+      aria-label="Tutup">
+      ×
+    </button>
+
+    <img
+      id="gallery-image"
+      src=""
+      alt="">
+
+    <p id="gallery-caption"></p>
+
+  </div>
+
+</div>
+
+  </main>
+
+<!-- ======================================
+Evidence Article Popup
+====================================== -->
+
+<div class="article-lightbox" id="article-lightbox">
+
+  <div class="article-overlay"></div>
+
+  <div class="article-modal">
+
+    <button
+      class="article-close"
+      id="article-close"
+      aria-label="Tutup"
+    >
+      ✕
+    </button>
+
+    <img
+      id="article-image"
+      src=""
+      alt=""
+      class="article-image"
+    />
+
+    <div class="article-body">
+
+      <p class="article-category" id="article-category"></p>
+
+      <h2 id="article-title"></h2>
+
+      <div id="article-content"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
 </BaseLayout>

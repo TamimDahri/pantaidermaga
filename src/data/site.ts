@@ -1,9 +1,11 @@
 export const timeline = [
   { year: 'Abad ke-2', title: 'Pengkalan Kempas', text: 'Kawasan pesisir Linggi–Lukut mempunyai jejak pelabuhan Melayu awal, megalit dan makam yang menandakan kepentingan laluan maritim lama.' },
-  { year: '1400-an', title: 'Lingkungan Melaka', text: 'Pantai barat Semenanjung menjadi rangkaian perdagangan dan pertahanan di bawah pengaruh Kesultanan Melayu Melaka.' },
-  { year: '1800-an', title: 'Lukut & bijih timah', text: 'Lukut berkembang sebagai pusat ekonomi bijih timah di bawah kepimpinan Raja Jumaat dan kemudian Raja Bot.' },
-  { year: 'Sebelum 1891', title: 'Tanjung Kemuning', text: 'Nama tempatan yang mendahului penamaan kolonial Port Dickson muncul dalam naratif dan rujukan peta lama kawasan ini.' },
-  { year: '1891', title: 'Port Dickson', text: 'British membangunkan jeti dan nama Port Dickson dikaitkan dengan pentadbiran kolonial John Frederick Dickson.' },
+  { year: '1400-an', title: 'Lingkungan Melaka', text: 'Lingkungan Melaka, penempatan Orang Laut. Pantai barat Tanah Melayu menjadi rangkaian perdagangan dan pertahanan di bawah pengaruh Kesultanan Melayu Melaka.' },
+  { year: '1600-an', title: 'Lukut', text: 'Lukut sudah tercatat dalam peta oleh Emanuel Godinho De Eredia ketika zaman penjajahan Portugis.' },
+  { year: '1750-an', title: 'Linggi', text: 'Linggi berperang dengan Belanda untuk menguasai laluan bijih timah melalui pelabuhan Melayu lama di Kuala Linggi.' },
+  { year: '1800-an', title: 'Lukut & Bijih Timah', text: 'Lukut berkembang sebagai pusat ekonomi bijih timah di bawah pentadbiran Selangor iaitu Raja Busu, Raja Jumaat dan kemudian Raja Bot. Di sinilah Yap Ah Loy mula belajar melombong bermula sebagai kuli. ' },
+  { year: '1875', title: 'Tanjong Kemuning', text: 'Nama asal pekan Port Dickson sekarang; dahulunya pekan Melayu yang tercatat dalam peta terawal Inggeris sebelum masuk campur dalam pentadbiran Negeri Sembilan melalui perebutan kuasa Dato Undang Sg Ujong. ' },
+  { year: '1891', title: 'Port Dickson', text: 'British membangunkan jeti dan kerah kuli dari India untuk bina landasan keretapi untuk kaut hasil bumi Tanah Melayu dan sabotaj pelabuhan Melayu Linggi. British menukar nama Tanjong Kemuning sempena Gabenor Negeri Selat British iaitu  John Frederick Dickson' },
 ];
 
 export const evidence = [
@@ -19,41 +21,148 @@ export const locations = [
   { name: 'Pengkalan Kempas', year: 'Abad ke-2', text: 'Jejak sejarah purba melalui makam, batu megalit dan laluan sungai.' },
 ];
 
-export const sources = [
-  {
-    image: "/images/gallery/001.jpg",
-    title: "Kempen Penjenamaan Pantai Dermaga",
-  },
-  {
-    image: "/images/gallery/002.jpg",
-    title: "Tanjung Kemuning 1",
-  },
-  {
-    image: "/images/gallery/003.jpg",
-    title: "Tanjung Kemuning 2",
-  },
-  {
-    image: "/images/gallery/004.jpg",
-    title: "Tanjung Kemuning 3",
-  },
-  {
-    image: "/images/gallery/005.jpg",
-    title: "Tanjung Kemuning 4",
-  },
-  {
-    image: "/images/gallery/006.jpg",
-    title: "Kota Lukut",
-  },
-  {
-    image: "/images/gallery/007.jpg",
-    title: "Masjid Kg Bahasa Kapor",
-  },
-  {
-    image: "/images/gallery/008.jpg",
-    title: "Dickson Penjajah",
-  },
-  {
-    image: "/images/gallery/009.jpg",
-    title: "Peta Penjajah",
-  },
+export const historyGallery = [
+
+{
+title:"Raja Bot 1864",
+image:"/images/history/1.jpg"
+},
+
+{
+title:"Peta Tanjung Kemuning 1875",
+image:"/images/history/2.1.jpeg"
+},
+
+{
+title:"Tanjung Kemuning, Selangor 1876",
+image:"/images/history/2.2.JPG"
+},
+
+
+{
+title:"Pelabuhan Tanjung Kemuning 1880",
+image:"/images/history/2.jpg"
+},
+
+{
+title:"Pelabuhan Tanjung Kemuning 1912",
+image:"/images/history/3.jpg"
+},
+
+{
+title:"Penduduk Kampung Tanjung Kemuning 1912",
+image:"/images/history/3.1.jpg"
+},
+
+{
+title:"Penduduk Kampung Tanjung Kemuning 1912",
+image:"/images/history/3.2.jpg"
+},
+
+{
+title:"Gambar Terkini Pelabuhan Tg Kemuning",
+image:"/images/history/4.png"
+},
+
+{
+title:"Masjid Kampung Bahasa Kapor 1900",
+image:"/images/history/5.jpg"
+},
+
+{
+title:"Tinggalan Kota Lukut",
+image:"/images/history/6.jpg"
+},
+
+{
+title:"Pulau Arang",
+image:"/images/history/7.png"
+},
+
+{
+title:"Jeti Pulau Arang",
+image:"/images/history/8.png"
+}
+
+];
+
+export const colonialGallery = [
+
+{
+title:"Federic Dickson",
+image:"/images/colonial/1.jpg"
+},
+
+{
+title:"Awal Penamaan Port Dickson 1912",
+image:"/images/colonial/2.jpg"
+},
+
+{
+title:"Port Dickson 1912",
+image:"/images/colonial/3.jpg"
+},
+
+{
+title:"Pelan Masjid Kampung Bahasa Kapor 1921",
+image:"/images/colonial/3.1.jpeg"
+},
+
+
+{
+title:"Peta Port Dickson 1928",
+image:"/images/colonial/4.jpg"
+},
+
+{
+title:"Kampung Bahasa Kapor Hampir Lenyap 1931",
+image:"/images/colonial/4.1.JPG"
+},
+
+{
+title:"Stesen Keretapi Port Dickson",
+image:"/images/colonial/5.png"
+},
+
+{
+title:"Tapak Nenek Moyang Cina Mendarat di Linggi",
+image:"/images/colonial/6.jpg"
+},
+
+{
+title:"Sekumpulan Kuli Cina 1909",
+image:"/images/colonial/6.1.jpeg"
+},
+
+{
+title:"Pelacuran Bahasa di Linggi",
+image:"/images/colonial/7.jpg"
+},
+
+{
+title:"Bangunan British kepada Bangunan Khoo Kek Wee",
+image:"/images/colonial/7.1.jpeg"
+},
+
+{
+title:"Jalan Baharu kepada Khoo Kek Wee",
+image:"/images/colonial/7.2.jpeg"
+},
+
+
+{
+title:"Kemasukan Kuli India 1899",
+image:"/images/colonial/8.jpeg"
+},
+
+{
+title:"Kuil Haram atas Tanah Anak Yatim di Lukut",
+image:"/images/colonial/9.jpeg"
+},
+
+{
+title:"Jalan Lama kepada Jalan K.Pathmanaban",
+image:"/images/colonial/9.1.jpeg"
+},
+
 ];
