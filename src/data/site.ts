@@ -34,7 +34,7 @@ image:"/images/history/2.1.jpeg"
 },
 
 {
-title:"Tanjung Kemuning, Selangor 1876",
+title:"Peta Lukut dalam Selangor 1876",
 image:"/images/history/2.2.JPG"
 },
 
@@ -110,7 +110,7 @@ image:"/images/colonial/3.1.jpeg"
 
 
 {
-title:"Peta Port Dickson 1928",
+title:"Nama Tanjong Kemuning Dalam Peta Port Dickson 1928",
 image:"/images/colonial/4.jpg"
 },
 
@@ -120,12 +120,17 @@ image:"/images/colonial/4.1.JPG"
 },
 
 {
-title:"Stesen Keretapi Port Dickson",
+title:"Keturunan Orang Lukut yang berhijrah ke Kota Tinggi Membuka Kampung Lukut, 1916",
+image:"/images/colonial/4.2.jpeg"
+},
+
+{
+title:"Stesyen Keretapi Port Dickson 2026",
 image:"/images/colonial/5.png"
 },
 
 {
-title:"Tapak Nenek Moyang Cina Mendarat di Linggi",
+title:"Ini Pelabuhan, Bukan Cina Sahaja Mendarat Di Sini",
 image:"/images/colonial/6.jpg"
 },
 
@@ -135,7 +140,7 @@ image:"/images/colonial/6.1.jpeg"
 },
 
 {
-title:"Pelacuran Bahasa di Linggi",
+title:"Pintu Gerbang Tempat Nenek Moyang Cina Mendarat Tanpa Permit",
 image:"/images/colonial/7.jpg"
 },
 
@@ -147,6 +152,11 @@ image:"/images/colonial/7.1.jpeg"
 {
 title:"Jalan Baharu kepada Khoo Kek Wee",
 image:"/images/colonial/7.2.jpeg"
+},
+
+{
+title:"Kampung Parit Gila Ditukar Nama ke Kampung Baru Sri Parit",
+image:"/images/colonial/7.3.jpeg"
 },
 
 
