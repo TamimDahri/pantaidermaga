@@ -7,8 +7,16 @@ const count = data ?? 0;
 
 <div class="petition-counter">
   <div class="counter-icon">✍️</div>
+
   <span class="counter-number" data-petition-count>
-    {count.toLocaleString("ms-MY")}
+    ...
   </span>
-  <span class="counter-label">rakyat telah menyokong petisyen ini</span>
+
+  <span class="counter-label">
+    rakyat telah menyokong petisyen ini
+  </span>
 </div>
+
+<script>
+  import "../scripts/petition-counter";
+</script>
